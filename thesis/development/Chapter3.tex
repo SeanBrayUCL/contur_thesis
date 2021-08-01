@@ -1,13 +1,33 @@
 \chapter{Profiling Contur}
 \label{chapterlabel3}
 
-In this chapter we will outline the tools used to profile contur and view the results. We will then conclude by presenting the results of the initial profile of contur which was performed before any optimization was performed. This initial profile can be taken as our base for assessing the effectiveness of optimization work later carried out on contur.
+This chapter will outline how we went about performing a profile of contur. We will start by introducing cProfile, which was used to carry out the profile. Then we will discuss Snakeviz and gprof2dot, these are the two tools which we used to visualize the profiling results produced by cProfile. Finally we will conclude the section by performing an initial profile of the contur package before any code optimization was attempted. This initial profile will serve as our benchmark to measure the effectiveness of our later attempts to improve the run time performance of contur.
 
 \section{Profiling with cProfile}
-dd
 
-\section{Viewing Results}
-dd
+\subsection{Why cProfile?}
+Before discussing cProfile it might be helpful to first consider what features we ideally require from a profiler to make are task of improving the performance of contur easier. At a minimum a profiler must obviously be able to time how long it takes our code to run. This basic requirement is essential to be able to determine if our attempted improvements to the code do in fact actually improve run performance. In addition to just providing the total run time of our program we would also like our profiler to provide a split of this runtime between the component parts which compose the program. This requirement is especially important for a large code base like contur which is being profiled by someone not involved in the development of the code base.
+
+cProfile is a module within the Python standard library which provides a profiler which meets all our requirements for a profiler, in addition it provides other useful features. Our main motivations for using cProfile are as follows:
+
+\begin{itemize}
+\item[1.] Provides a full profile of program with output include total run time, time taken at each individual step, and number of calls to individual functions;
+\item[2.] Easy to save the output of the profile in pstat files which can then be read by tools built to visualize profiling results;
+\item[3.] Performing the profile with cProfile is quick and easy and requires minimal new code;
+\end{itemize}
+
+\subsection{Using cProfile}
+cProfile is simple to use, this can be seen by considering the most straightforward profile of contur we can do using cProfile's run function. We can 
+
+\begin{minted}{python}
+
+from brg.datastructures import Mesh
+ 
+mesh = Mesh.from_obj('faces.obj')
+mesh.draw()
+\end{minted}
+
+\section{Visualizing Profiling Results}
 
 \section{Initial Profile Results}
 dd
