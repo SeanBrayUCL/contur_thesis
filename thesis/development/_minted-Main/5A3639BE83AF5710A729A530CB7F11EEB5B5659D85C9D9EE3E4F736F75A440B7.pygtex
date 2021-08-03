@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYGmanni{k+kn}{from} \PYGmanni{n+nn}{brg.datastructures} \PYGmanni{k+kn}{import} \PYGmanni{n}{Mesh}
-
-\PYGmanni{n}{mesh} \PYGmanni{o}{=} \PYGmanni{n}{Mesh}\PYGmanni{o}{.}\PYGmanni{n}{from\PYGmanniZus{}obj}\PYGmanni{p}{(}\PYGmanni{l+s+s1}{\PYGmanniZsq{}faces.obj\PYGmanniZsq{}}\PYGmanni{p}{)}
-\PYGmanni{n}{mesh}\PYGmanni{o}{.}\PYGmanni{n}{draw}\PYGmanni{p}{()}
-\end{Verbatim}
