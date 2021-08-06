@@ -1,0 +1,33 @@
+=>PYTHONTEX#py#default#defaultverb#0#verbatim####Chapter3.tex#22#
+print(“Hello, World!”)
+=>PYTHONTEX#py#default#defaultverb#1#verbatim####Chapter3.tex#26#
+
+from brg.datastructures import Mesh
+
+mesh = Mesh.from_obj('faces.obj')
+mesh.draw()
+=>PYTHONTEX:SETTINGS#
+version=0.14
+outputdir=pythontex-files-Main
+workingdir=.
+workingdirset=false
+gobble=none
+rerun=default
+hashdependencies=default
+makestderr=false
+stderrfilename=full
+keeptemps=none
+pyfuture=default
+pyconfuture=none
+pygments=true
+pygglobal=:GLOBAL||
+fvextfile=-1
+pyconbanner=none
+pyconfilename=stdin
+depythontex=false
+pygfamily=py|python|
+pygfamily=pycon|pycon|
+pygfamily=sympy|python|
+pygfamily=sympycon|pycon|
+pygfamily=pylab|python|
+pygfamily=pylabcon|pycon|

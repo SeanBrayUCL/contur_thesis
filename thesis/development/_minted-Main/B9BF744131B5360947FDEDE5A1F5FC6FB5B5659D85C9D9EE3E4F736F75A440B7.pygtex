@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k+kn}{import} \PYGmanni{n+nn}{cProfile}
+
+\PYGmanni{k}{if} \PYGmanni{n+nv+vm}{\PYGmanniZus{}\PYGmanniZus{}name\PYGmanniZus{}\PYGmanniZus{}} \PYGmanni{o}{==} \PYGmanni{l+s+s2}{\PYGmanniZdq{}\PYGmanniZus{}\PYGmanniZus{}main\PYGmanniZus{}\PYGmanniZus{}\PYGmanniZdq{}}\PYGmanni{p}{:}
+       \PYGmanni{n}{cls\PYGmanniZus{}args} \PYGmanni{o}{=} \PYGmanni{n}{get\PYGmanniZus{}args}\PYGmanni{p}{(}\PYGmanni{n}{sys}\PYGmanni{o}{.}\PYGmanni{n}{argv}\PYGmanni{p}{[}\PYGmanni{l+m+mi}{1}\PYGmanni{p}{:],}\PYGmanni{l+s+s1}{\PYGmanniZsq{}analysis\PYGmanniZsq{}}\PYGmanni{p}{)}
+       \PYGmanni{n}{cProfile}\PYGmanni{o}{.}\PYGmanni{n}{run}\PYGmanni{p}{(}\PYGmanni{l+s+s2}{\PYGmanniZdq{}main(cl\PYGmanniZus{}args)\PYGmanniZdq{}}\PYGmanni{p}{,} \PYGmanni{n}{sort}\PYGmanni{o}{=}\PYGmanni{n}{cumtime}\PYGmanni{p}{)} \PYGmanni{c+c1}{\PYGmanniZsh{}perform profile}
+\end{Verbatim}
