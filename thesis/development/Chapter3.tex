@@ -1,23 +1,24 @@
 \chapter{Profiling Contur}
 \label{chapterlabel3}
-
-This chapter will outline how we went about performing a profile of contur. We will start by introducing cProfile, which was used to carry out the profile. Then we will discuss Snakeviz and gprof2dot, these are the two tools which we used to visualize the profiling results produced by cProfile. Finally we will conclude the section by performing an initial profile of the contur package before any code optimization was attempted. This initial profile will serve as our benchmark to measure the effectiveness of our later attempts to improve the run time performance of contur.
+An important part of the task of optimising contur is to first perform a profile of the code. This section will outline the steps taken to produce a profile of contur and how the results were used. We will start by introducing cProfile, which is the Python profiler which was used to carry out the profile. Then we will discuss Snakeviz and gprof2dot, these are the two tools which we used to visualize the profiling results produced by cProfile. Finally we will conclude the section by performing an initial profile of the contur package before any code optimization was attempted. This initial profile will serve as our benchmark to measure the effectiveness of our later attempts to improve the run time performance of contur.
 
 \section{Profiling with cProfile}
 
 \subsection{Why cProfile?}
-Let us first begin by considering the features we ideally require from our profiler to make our task of improving the performance of contur easier. At a minimum a profiler must obviously be able to time how long it takes our code to run. This basic requirement is essential to be able to determine if our attempted improvements to the code do in fact actually improve run performance. In addition to just providing the total run time of our program we would also like our profiler to provide a split of this runtime between the component parts which compose the program. This requirement is especially important for a large code base like contur which is being profiled by someone not involved in the development of the code base.
+Let us first begin by considering some of the features we ideally require from our chosen profiler. At a minimum a profiler must obviously be able to time how long it takes our code to run. This basic requirement is essential to be able to determine if our attempted improvements to the code do in fact actually improve run performance. In addition to just providing the total run time of contur we will also require our profiler to provide a split of the runtime among the functions/sub-functions which compose contur. A split of the run time like this will highlight parts of the code that consume disproportionately large amounts of CPU or are repetitively called, suggesting optimisation improvements can be made.
 
-cProfile is a module within the Python standard library which provides a profiler which meets all our requirements for a profiler, in addition it provides other useful features. Our main motivations for using cProfile are as follows:
+cProfile is a module within the Python standard library which meets these requirements. Our main motivations for using cProfile are as follows:
 
 \begin{itemize}
-\item[1.] Provides a full profile of program with output include total run time, time taken at each individual step, and number of calls to individual functions;
-\item[2.] Easy to save the output of the profile in pstat files which can then be read by tools built to visualize profiling results;
-\item[3.] Performing the profile with cProfile is quick and easy and requires minimal new code;
+\item Provides a full profile of program with output include total run time, time taken at each individual step, and number of calls to individual functions;
+\item Easy to save the output of the profile in prof files which can then be read by tools built to visualize profiling results;
+\item Performing the profile with cProfile is quick and easy and requires minimal new code;
 \end{itemize}
 
 \subsection{Using cProfile}
-cProfile is simple to use, this can be seen by considering the most straightforward profile of contur we can do using cProfile's run function. In the contur run script \href{https://gitlab.com/hepcedar/contur/-/blob/master/bin/contur}{here} we can just pass main to the cProfile run method as follows 
+The last version of contur which exists in the main contur repository before any optimisation changes were attempted can be found at commit \href{https://gitlab.com/hepcedar/contur/-/tree/49a67e039cf93c88b39dade3dfb7c5f03e780fb2}{49a67e03}. In this section we will walk through the steps required to profile this version of contur running on a single yoda file. The steps required to perform the profile on a contur grid run are the same, so the in the next section we will just provide the results for a grid run of this version of contur.
+
+The simplest way of performing a profile with cProfile is via cProfile's run method. To profile contur using the run method we just pass contur's main function to the run method. We can make this adjustment to contur's code by updating the main run script \href{https://gitlab.com/hepcedar/contur/-/blob/master/bin/contur}{here} as follows 
 
 \begin{minted}{python}
 
@@ -26,15 +27,10 @@ import cProfile
 if __name__ == "__main__":
        cls_args = get_args(sys.argv[1:],'analysis')
        cProfile.run("main(cl_args)", sort=cumtime) #perform profile
+       
 \end{minted}
 
-When we run contur with the above update on a single yoda file we get the following terminal output with the profiling results
-
-\begin{itemize}
-\item Provides a full profile of program with output include total run time, time taken at each individual step, and number of calls to individual functions;
-\item Easy to save the output of the profile in pstat files which can then be read by tools built to visualize profiling results;
-\item Performing the profile with cProfile is quick and easy and requires minimal new code;
-\end{itemize}
+After updating the run script as above we can now run contur as normal to get the below terminal output from the profile
 
 \begin{figure}[H]
 \centering
@@ -48,10 +44,12 @@ From figure \ref{fig:ep} above we can summarise the main output from the single 
 \begin{itemize}
 \item From line one of the profiling results we can see that the run had c.a. 17 million function calls and took c.a. 20 seconds to run;
 \item The next line tells us that we are ordering the profiling results by cumulative time (cumtime column). The cumulative time for a function is the time spent to run a function and all other functions called within the function (so the cumtime for the main function will be the total run time of the program as all other functions are called within main);
-\item From line three on we have the profiling information for the functions and sub function which compose the contur run. The main columns which stand out here are "ncalls" which gives the number of calls made to the function, "tottime" which gives the total time spent in the function excluding calls to sub functions and finally "cumtime" which as already explained gives the run time for each function including all the calls to sub functions.;
+\item From line three on we have the profiling information for the functions and sub-functions which compose the contur run. The main columns which stand out here are 'ncalls' which gives the number of calls made to the function, 'tottime' which gives the total time spent in the function excluding calls to sub functions and finally 'cumtime' which as already explained gives the run time for each function including all the calls to sub functions.;
 \end{itemize}
 
-The above profiling is already useful, it gives us things like the run time and the break down of the run time between the components of contur. However the printed results in the current form are not very readable, an in dept knowledge of the functions that compose contur would be needed to take any advantage of the run time broken down by components in its current form. Additionally we don't just want to print result to the terminal and work from there, we would preferable save the profiling results to some file format so our results are reusable across time. To meet both these objectives for the profiling we do from here on we will print the data from our profile into ".prof" files which can then be read by tools which help visualise the profiling results. We do this by introducing the Profile class of cProfile and using this to perform our profiles from here on in as opposed to using the run method, the updated code to perform the profiling with the Profile class is given below.
+The above profiling is already useful, it gives us things like the run time and the break down of the run time between the components of contur. However the printed results in the current form are not very readable, a detailed knowledge of the functions that compose contur would be needed to take any advantage of the run time broken down by components in its current form. Additionally we don't just want to print result to the terminal and work from there, we would preferable save the profiling results to some file format so our results are reusable across time. 
+
+To meet both these objectives for the profiling we  from here on we will print the data from our profile into '.prof' files which can then be read by tools which help visualise the profiling results. We do this by introducing the Profile class of cProfile and using this to perform our profiles from here on in as opposed to using the run method, the updated code to perform the profiling with the Profile class is given below.
 
 \begin{minted}{python}
 
@@ -72,10 +70,10 @@ if __name__ == "__main__":
 
 \section{Visualizing Profiling Results}
 
-To visualise our profiling results we will use two open source tools Snakeviz and gprof2dot. As the following will attempt to show both of these tools can be used in a complementary ways to aid in best using the profiling data output from cProfile.
+To visualise our profiling results we will use two open source tools Snakeviz and gprof2dot. As what follows will show, we can use both of these tools in a complementary way, as opposed to a simple choose of one or the other, to help make best of use of the profiling data we produce with cProfile.
 
 \subsection{Snakeviz}
-Snakeviz is a browser based graphical viewer for the output of Python's cProfile profiler module. Snakeviz can easily be piped installed with the following terminal command
+Snakeviz is a browser based graphical viewer for the output of Python's cProfile profiler module. Snakeviz can easily be pip installed with the following terminal command
 
 \begin{lstlisting}[language=bash]
   $ pip install snakeviz

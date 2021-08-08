@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{for} \PYGmanni{n}{p} \PYGmanni{o+ow}{in} \PYGmanni{n}{pools}\PYGmanni{p}{:}
+  \PYGmanni{k}{if} \PYGmanni{o+ow}{not} \PYGmanni{n}{p} \PYGmanni{o}{==} \PYGmanni{n}{omitted\PYGmanniZus{}pools}\PYGmanni{p}{:}
+    \PYGmanni{k}{for} \PYGmanni{n}{item} \PYGmanni{o+ow}{in} \PYGmanni{n}{like\PYGmanniZus{}blocks}\PYGmanni{p}{:}
+      \PYGmanni{k}{if} \PYGmanni{n}{item}\PYGmanni{o}{.}\PYGmanni{n}{CLs} \PYGmanni{o}{==} \PYGmanni{n+nb}{max}\PYGmanni{p}{([}\PYGmanni{n}{x}\PYGmanni{o}{.}\PYGmanni{n}{CLs} \PYGmanni{k}{for} \PYGmanni{n}{x} \PYGmanni{o+ow}{in} \PYGmanni{n}{like\PYGmanniZus{}blocks} \PYGmanni{k}{if} \PYGmanni{n}{x}\PYGmanni{o}{.}\PYGmanni{n}{pools} \PYGmanni{o}{==} \PYGmanni{n}{p}\PYGmanni{p}{])} \PYGmanniZbs{}
+\end{Verbatim}
