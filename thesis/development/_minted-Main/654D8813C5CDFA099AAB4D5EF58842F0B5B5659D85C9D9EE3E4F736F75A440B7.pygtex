@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{def} \PYGmanni{n+nf}{EvaluateHistogram}\PYGmanni{p}{(}\PYGmanni{n}{Histogram}\PYGmanni{p}{):}
+    \PYGmanni{k}{if} \PYGmanni{n}{Histogram} \PYGmanni{n}{has} \PYGmanni{n}{correlation} \PYGmanni{o+ow}{and} \PYGmanni{p}{(}\PYGmanni{n}{build} \PYGmanni{n}{correlation} \PYGmanni{o}{=}\PYGmanni{k+kc}{True}\PYGmanni{p}{)}
+          \PYGmanni{k}{return} \PYGmanni{n}{Likelihood}\PYGmanni{p}{(}\PYGmanni{n}{Histogram}\PYGmanni{p}{)}
+    \PYGmanni{k}{else}\PYGmanni{p}{:}
+          \PYGmanni{k}{return} \PYGmanni{n+nb}{max}\PYGmanni{p}{(}\PYGmanni{n}{Likelihood}\PYGmanni{p}{(}\PYGmanni{n}{Histogram}\PYGmanni{o}{.}\PYGmanni{n}{bins}\PYGmanni{p}{))}
+\end{Verbatim}

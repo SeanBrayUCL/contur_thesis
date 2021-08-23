@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{def} \PYGmanni{n+nf}{BuildFullLikelihood}\PYGmanni{p}{():}
+      \PYGmanni{n}{tests} \PYGmanni{o}{=} \PYGmanni{p}{[]}
+      \PYGmanni{k}{for} \PYGmanni{n}{Pool} \PYGmanni{o+ow}{in} \PYGmanni{n}{ConturPools}\PYGmanni{p}{:}
+            \PYGmanni{n}{tests}\PYGmanni{o}{.}\PYGmanni{n}{append}\PYGmanni{p}{(}\PYGmanni{n}{EvaliatePool}\PYGmanni{p}{(}\PYGmanni{n}{Pool}\PYGmanni{p}{))}
+       \PYGmanni{k}{return} \PYGmanni{n}{Likelihood}\PYGmanni{p}{(}\PYGmanni{n}{tests}\PYGmanni{p}{)}
+\end{Verbatim}

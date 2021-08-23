@@ -88,7 +88,7 @@
      }
 
 
-\nobibliography*
+
 % ^-- This is a dumb trick that works with the bibentry package to let
 %  you put bibliography entries whereever you like.
 % I used this to put references to papers a chapter's work was 
@@ -114,9 +114,59 @@
 % You could separate these out into different files if you have
 %  particularly large appendices.
 
-% Actually generates your bibliography. The fact that \include is 
-% the last thing before this ensures that it is on a clear page.
-\bibliography{example}
+\begin{thebibliography}{9}
+\bibitem{ufo} 
+UFO - The Universal FeynRules Output,
+\\\texttt{https://arxiv.org/abs/1108.2040}
+
+\bibitem{herwig} 
+Herwig - Event Generator,
+\\\texttt{https://herwig.hepforge.org}
+
+\bibitem{yoda} 
+Yoda,
+\\\texttt{https://yoda.hepforge.org}
+
+\bibitem{contur_manuel} 
+Contur User Manuel,
+\\\texttt{https://arxiv.org/abs/2102.04377}
+
+\bibitem{cProfile} 
+cProfile Documentation,
+\\\texttt{https://docs.python.org/3/library/profile.html}
+
+\bibitem{contur_main} 
+Main repository with Contur code,
+\\\texttt{https://gitlab.com/hepcedar/contur}
+
+\bibitem{snakeviz} 
+Snakeviz Package,
+\\\texttt{https://jiffyclub.github.io/snakeviz/}
+
+\bibitem{gprof2dot} 
+gprof2dot Package,
+\\\texttt{https://github.com/jrfonseca/gprof2dot}
+
+\bibitem{pytest} 
+Python pytest Documentation,
+\\\texttt{https://docs.pytest.org/en/6.2.x/}
+
+\bibitem{HEPData} 
+HEPData Repository,
+\\\texttt{https://arxiv.org/abs/1704.05473}
+
+\bibitem{Rivet} 
+Rivet Library,
+\\\texttt{https://rivet.hepforge.org}
+
+\bibitem{cls} 
+CLS Technique,
+\\\texttt{https://doi.org/10.1088/0954-3899/28/10/313}
+
+
+
+\end{thebibliography}
+
 
 % All done. \o/
 \end{document}

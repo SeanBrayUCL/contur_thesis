@@ -1,9 +1,17 @@
 \chapter{Introduction}
 \label{chapterlabel1}
 
+This thesis's main focus is profiling and optimising the code which runs the Contur procedure. In section 2 we introduce Contur and provide the necessary background to understand what Contur is and what it does. We will also try to summarise the main parts of the flow of the Contur code. Understanding this flow of the Contur code will be helpful later when we outline the profiling done and the optimisations implemented on the back of this profiling. 
+
+In section 3 we will begin to start discussing the profiling performed. We will start with a quick outline of the benefits of improving Contur runtime and then move onto outlining the tool used to perform the profile and then the tools used to visualise the results. The section will then conclude with a presentation of the initial profiling results performed on Contur before any optimisation was attempted, these initial profiling results will be taken as our benchmark to judge the impact of later optimisation attempts.
+
+In section 4 we will digress slightly to discuss introducing automatic tests into the Contur package. An important consideration is that when making changes to Contur for optimisation purposes, is that we don't unintentional break code or introduce errors. One means we can reduce the chances of introducing errors into Contur is via a robust testing infrastructure. The addition of these tests will form the content of section 4.
+
+In section 5 we will outline the changes made the Contur code for optimisation. The section will outline the motivation for each of the changes, attempting to explain how it improves Contur run wise. Additionally the section will provide updated profiles after each change so we have a high level visibility on each changes impact.
+
+We will then conclude the thesis in section 6 by briefly summarising the accomplishments of the project. Additionally the final profile results of Contur after all the optimisation changes have been implemented will be presented. From these final results we can understand the most computational intensive remaining parts of a Contur run thus providing the target ares for future optimisation attempts with Contur.  
+
 Some stuff about things.\cite{example-citation} Some more things. 
 
 Inline citation: \bibentry{example-citation}
 
-% This just dumps some pseudolatin in so you can see some text in place.
-\blindtext
