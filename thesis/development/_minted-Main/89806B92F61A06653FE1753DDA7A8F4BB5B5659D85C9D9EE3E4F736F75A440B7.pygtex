@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{def} \PYGmanni{n+nf}{EvaluatePool}\PYGmanni{p}{(}\PYGmanni{n}{Pool}\PYGmanni{p}{):}
+    \PYGmanni{n}{scores} \PYGmanni{o}{=} \PYGmanni{p}{[]} \PYGmanni{c+c1}{\PYGmanniZsh{}empty list for results}
+    \PYGmanni{k}{if} \PYGmanni{n}{Histogram} \PYGmanni{o+ow}{in} \PYGmanni{n}{pool}\PYGmanni{p}{:}
+       \PYGmanni{n}{scores}\PYGmanni{o}{.}\PYGmanni{n}{append}\PYGmanni{p}{(}\PYGmanni{n}{EvaluateHistogram}\PYGmanni{p}{(}\PYGmanni{n}{Histogram}\PYGmanni{p}{))}
+    \PYGmanni{k}{return} \PYGmanni{n}{Histogram} \PYGmanni{k}{with} \PYGmanni{n+nb}{max}\PYGmanni{p}{(}\PYGmanni{n}{scores}\PYGmanni{p}{)}
+\end{Verbatim}
