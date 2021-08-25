@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{def} \PYGmanni{n+nf}{test\PYGmanniZus{}regression\PYGmanniZus{}grid\PYGmanniZus{}run}\PYGmanni{p}{():}
+    \PYGmanni{n}{args\PYGmanniZus{}path} \PYGmanni{o}{=} \PYGmanni{n}{os}\PYGmanni{o}{.}\PYGmanni{n}{path}\PYGmanni{o}{.}\PYGmanni{n}{join}\PYGmanni{p}{(}\PYGmanni{n}{test\PYGmanniZus{}dir}\PYGmanni{p}{,} \PYGmanni{l+s+s1}{\PYGmanniZsq{}base.map\PYGmanniZsq{}}\PYGmanni{p}{)}
+    \PYGmanni{k}{with} \PYGmanni{n+nb}{open}\PYGmanni{p}{(}\PYGmanni{n}{args\PYGmanniZus{}path}\PYGmanni{p}{,} \PYGmanni{l+s+s1}{\PYGmanniZsq{}rb\PYGmanniZsq{}}\PYGmanni{p}{)} \PYGmanni{k}{as} \PYGmanni{n}{file}\PYGmanni{p}{:}
+        \PYGmanni{n}{base} \PYGmanni{o}{=} \PYGmanni{n}{pkl}\PYGmanni{o}{.}\PYGmanni{n}{load}\PYGmanni{p}{(}\PYGmanni{n}{file}\PYGmanni{p}{)}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}build\PYGmanniZus{}frame}\PYGmanni{p}{()}
+    \PYGmanni{n}{args\PYGmanniZus{}path} \PYGmanni{o}{=} \PYGmanni{n}{os}\PYGmanni{o}{.}\PYGmanni{n}{path}\PYGmanni{o}{.}\PYGmanni{n}{join}\PYGmanni{p}{(}\PYGmanni{n}{test\PYGmanniZus{}dir}\PYGmanni{p}{,} \PYGmanni{l+s+s1}{\PYGmanniZsq{}target.map\PYGmanniZsq{}}\PYGmanni{p}{)}
+    \PYGmanni{k}{with} \PYGmanni{n+nb}{open}\PYGmanni{p}{(}\PYGmanni{n}{args\PYGmanniZus{}path}\PYGmanni{p}{,} \PYGmanni{l+s+s1}{\PYGmanniZsq{}rb\PYGmanniZsq{}}\PYGmanni{p}{)} \PYGmanni{k}{as} \PYGmanni{n}{file}\PYGmanni{p}{:}
+        \PYGmanni{n}{target} \PYGmanni{o}{=} \PYGmanni{n}{pkl}\PYGmanni{o}{.}\PYGmanni{n}{load}\PYGmanni{p}{(}\PYGmanni{n}{file}\PYGmanni{p}{)}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}build\PYGmanniZus{}frame}\PYGmanni{p}{()}
+    \PYGmanni{n}{assert\PYGmanniZus{}frame\PYGmanniZus{}equal}\PYGmanni{p}{(}\PYGmanni{n}{base}\PYGmanni{p}{,} \PYGmanni{n}{target}\PYGmanni{p}{)}
+\end{Verbatim}

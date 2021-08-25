@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{} Before: Just instantiate yoda\PYGmanniZus{}factories object}
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{} and straight away call sort blocks}
+\PYGmanni{n}{yFact} \PYGmanni{o}{=} \PYGmanni{n}{yoda\PYGmanniZus{}factories}\PYGmanni{p}{(}\PYGmanni{n}{yoda\PYGmanniZus{}file}\PYGmanni{p}{)}
+\PYGmanni{n}{yFact}\PYGmanni{o}{.}\PYGmanni{n}{sort\PYGmanniZus{}blocks}\PYGmanni{p}{()}
+
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{}After: Now after instantiating the}
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{} yoda object we need to call the new}
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{} functions to compute CLs}
+\PYGmanni{n}{yFact} \PYGmanni{o}{=} \PYGmanni{n}{yoda\PYGmanniZus{}factories}\PYGmanni{p}{(}\PYGmanni{n}{yoda\PYGmanniZus{}file}\PYGmanni{p}{)}
+\PYGmanni{n}{likelihood\PYGmanniZus{}blocks\PYGmanniZus{}find\PYGmanniZus{}dominant\PYGmanniZus{}ts}\PYGmanni{p}{(}\PYGmanni{n}{yFact}\PYGmanni{o}{.}\PYGmanni{n}{likelihood\PYGmanniZus{}blocks}\PYGmanni{p}{)}
+\PYGmanni{n}{likelihood\PYGmanniZus{}blocks\PYGmanniZus{}ts\PYGmanniZus{}to\PYGmanniZus{}cls}\PYGmanni{p}{(}\PYGmanni{n}{yFact}\PYGmanni{o}{.}\PYGmanni{n}{likelihood\PYGmanniZus{}blocks}\PYGmanni{p}{)}
+\PYGmanni{n}{yFact}\PYGmanni{o}{.}\PYGmanni{n}{sort\PYGmanniZus{}blocks}\PYGmanni{p}{()}
+\end{Verbatim}

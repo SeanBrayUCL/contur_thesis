@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{k}{if} \PYGmanni{n}{contur}\PYGmanni{o}{.}\PYGmanni{n}{config}\PYGmanni{o}{.}\PYGmanni{n}{contur\PYGmanniZus{}log}\PYGmanni{o}{.}\PYGmanni{n}{isEnabledFor}\PYGmanni{p}{(}\PYGmanni{n}{logging}\PYGmanni{o}{.}\PYGmanni{n}{DEBUG}\PYGmanni{p}{):}
+   \PYGmanni{n}{contur}\PYGmanni{o}{.}\PYGmanni{n}{config}\PYGmanni{o}{.}\PYGmanni{n}{contur\PYGmanniZus{}log}\PYGmanni{o}{.}\PYGmanni{n}{debug}\PYGmanni{p}{(}
+   \PYGmanni{l+s+s2}{\PYGmanniZdq{}n data, }\PYGmanni{l+s+si}{\PYGmanniZob{}\PYGmanniZcb{}}\PYGmanni{l+s+s2}{ signal, }\PYGmanni{l+s+si}{\PYGmanniZob{}\PYGmanniZcb{}}\PYGmanni{l+s+s2}{ background }\PYGmanni{l+s+si}{\PYGmanniZob{}\PYGmanniZcb{}}\PYGmanni{l+s+s2}{, bin }\PYGmanni{l+s+si}{\PYGmanniZob{}\PYGmanniZcb{}}\PYGmanni{l+s+s2}{ \PYGmanniZdq{}}\PYGmanni{o}{.}\PYGmanni{n}{format}\PYGmanni{p}{(}
+   \PYGmanni{n}{like\PYGmanniZus{}ob}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}n}\PYGmanni{p}{,} \PYGmanni{n}{like\PYGmanniZus{}ob}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}s}\PYGmanni{p}{,} \PYGmanni{n}{like\PYGmanniZus{}ob}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}bg}\PYGmanni{p}{,} \PYGmanni{n}{like\PYGmanniZus{}ob}\PYGmanni{o}{.}\PYGmanni{n}{\PYGmanniZus{}index}\PYGmanni{p}{))}
+\end{Verbatim}

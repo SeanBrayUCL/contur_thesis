@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{p}{[}\PYGmanni{n}{match}\PYGmanni{o}{.}\PYGmanni{n}{group}\PYGmanni{p}{()} \PYGmanni{o+ow}{in} \PYGmanni{n}{x} \PYGmanni{k}{for} \PYGmanni{n}{x} \PYGmanni{o+ow}{in}
+\PYGmanni{p}{[}\PYGmanni{n}{rivet}\PYGmanni{o}{.}\PYGmanni{n}{stripOptions}\PYGmanni{p}{(}\PYGmanni{n}{x}\PYGmanni{p}{)} \PYGmanni{k}{for} \PYGmanni{n}{x} \PYGmanni{o+ow}{in} \PYGmanni{n}{aopath}\PYGmanni{p}{]]}
+\end{Verbatim}

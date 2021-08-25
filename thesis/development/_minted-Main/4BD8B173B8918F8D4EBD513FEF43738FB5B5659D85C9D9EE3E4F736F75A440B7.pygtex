@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{} Passing individual test statistics (before)}
+\PYGmanni{n}{p\PYGmanniZus{}val\PYGmanniZus{}background} \PYGmanni{o}{=} \PYGmanni{n}{ts\PYGmanniZus{}to\PYGmanniZus{}pval}\PYGmanni{p}{(}\PYGmanni{n}{ts\PYGmanniZus{}background}\PYGmanni{p}{)}
+\PYGmanni{n}{p\PYGmanniZus{}val\PYGmanniZus{}signal} \PYGmanni{o}{=} \PYGmanni{n}{ts\PYGmanniZus{}to\PYGmanniZus{}pval}\PYGmanni{p}{(}\PYGmanni{n}{ts\PYGmanniZus{}signal}\PYGmanni{p}{)}
+
+\PYGmanni{c+c1}{\PYGmanniZsh{}\PYGmanniZsh{}Passing list of tuples (after)}
+\PYGmanni{n}{list\PYGmanniZus{}ts} \PYGmanni{o}{=} \PYGmanni{p}{[(}\PYGmanni{n}{ts\PYGmanniZus{}background}\PYGmanni{p}{,}\PYGmanni{n}{ts\PYGmanniZus{}signal}\PYGmanni{p}{)]}
+\PYGmanni{n}{p\PYGmanniZus{}val\PYGmanniZus{}background} \PYGmanni{p}{,} \PYGmanni{n}{p\PYGmanniZus{}val\PYGmanniZus{}signal} \PYGmanni{o}{=} \PYGmanni{n}{ts\PYGmanniZus{}to\PYGmanniZus{}pval}\PYGmanni{p}{(}\PYGmanni{n}{list\PYGmanniZus{}ts}\PYGmanni{p}{))}
+\end{Verbatim}
