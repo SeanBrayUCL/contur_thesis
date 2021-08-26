@@ -32,17 +32,19 @@ We will demonstrate the usage of \textbf{cProfile} by profiling the last version
 
 For the demonstration we will walk through the steps to profile a single \textbf{YODA} file. The steps required to perform the profile on a \textbf{Contur} grid run are the same, so at the conclusion of this chapter we can just provide the profiling results for the grid run without repeating the walk through.
 
-The simplest way of performing a profile with \textbf{cProfile} is via \textbf{cProfile's} run method. To profile \textbf{Contur} using the run method we just pass \textbf{Contur's} main function to the run method. We can make this adjustment to \textbf{Contur's} code by updating the main run script\footnote{Can be found \href{https://gitlab.com/hepcedar/contur/-/blob/main/bin/contur}{here}} as follows 
+The simplest way of performing a profile with \textbf{cProfile} is via \textbf{cProfile's} \texttt{run} method. To profile \textbf{Contur} using the run method we just pass \textbf{Contur's} main function to the \texttt{run} method. We make this adjustment to \textbf{Contur's} code by updating the main run script\footnote{Can be found \href{https://gitlab.com/hepcedar/contur/-/blob/main/bin/contur}{here}} in listing \ref{code:first_profile} below.
 
+\begin{code}
+\captionof{listing}{Example using \textbf{cProfile} run}
+\label{code:first_profile}
 \begin{minted}{python}
-
 import cProfile
 
 if __name__ == "__main__":
        cls_args = get_args(sys.argv[1:],'analysis')
        cProfile.run("main(cl_args)", sort=cumtime)
-
 \end{minted}
+\end{code}
 
 
 After updating the run script as above we can now run \textbf{Contur} as normal to get the below terminal output from the profile
@@ -50,7 +52,7 @@ After updating the run script as above we can now run \textbf{Contur} as normal 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{plots/example_profile.png}
-\caption{Output of cProfile run method}
+\caption{Output of \textbf{cProfile} run method}
 \label{fig:ep}
 \end{figure}
 
@@ -64,10 +66,12 @@ From figure \ref{fig:ep} above we can summarise the main output from the single 
 
 The above profiling is already useful, it gives us things like the run time and the break down of the run time between the components of \textbf{Contur} . However the printed results in the current form are not very readable, a detailed knowledge of the functions that compose \textbf{Contur} would be needed to take any advantage of the run time broken down by components in its current form. Additionally we don't just want to print result to the terminal and work from there, we would preferable save the profiling results to some file format so our results are reusable across time. 
 
-To meet both these objectives for the profiling we  from here on we will print the data from our profile into \texttt{prof} files which can then be read by tools which help visualise the profiling results. We do this by introducing the Profile class of \textbf{cProfile} and using this to perform our profiles from here on in as opposed to using the run method, the updated code to perform the profiling with the \textbf{cProfile} class is given below.
+To meet both these objectives for the profiling we  from here on we will print the data from our profile into \texttt{prof} files which can then be read by tools which help visualise the profiling results. We do this by introducing the Profile class of \textbf{cProfile} and using this to perform our profiles from here on in as opposed to using the run method, the updated code to perform the profiling with the \textbf{cProfile} class is given in listing \ref{code:second_profile} below.
 
+\begin{code}
+\captionof{listing}{Modification to \textbf{Contur} run for \textbf{cProfile}}
+\label{code:second_profile}
 \begin{minted}{python}
-
 import cProfile, pstats, io
 
 if __name__ == "__main__":
@@ -81,6 +85,7 @@ if __name__ == "__main__":
        pr.disable()
        pr.dump_stats('outfile.prof'')
 \end{minted}
+\end{code}
 
 
 \section{Visualizing Profiling Results}
