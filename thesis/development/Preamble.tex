@@ -2,9 +2,9 @@
 %  but given that some people needed it, if you need a different degree title 
 %  (e.g. Master of Science, Master in Science, Master of Arts, etc)
 %  uncomment the following 3 lines and set as appropriate (this *has* to be before \maketitle)
-% \makeatletter
-% \renewcommand {\@degree@string} {Master of Things}
-% \makeatother
+\makeatletter
+\renewcommand {\@degree@string} {Master of Science}
+\makeatother
 
 \title{Profiling \& Optimising Contur}
 \author{Sean Bray}
@@ -14,11 +14,9 @@
 \makedeclaration
 
 \begin{abstract} % 300 word limit
-My research is about stuff.
-
-It begins with a study of some stuff, and then some other stuff and things.
-
-There is a 300-word limit on your abstract.
+For this research project we profiled and optimised the \textbf{Contur} software package. This thesis outlines the tools used to carry and out visualise the profiling results.
+Additionally it outlines the subsequent optimisation changes made to \textbf{Contur} based off the results seen in the profiles. On the test data we ran the profile on, the optimisation changes
+implemented achieved a factor of 5 speed up in run time (pre-optimisation runtime of around 20 minutes, post optimisation runtime of just below 4 minutes).
 \end{abstract}
 
 \setcounter{tocdepth}{2} 
