@@ -33,7 +33,8 @@ The grid run returns a pickled\footnote{For further information about pickling o
 
 
 \subsection{Implementing Regression Tests}
-Adding the regression tests to \textbf{Contur's} testing infrastructure is straight forward enough. For the single \textbf{YODA} regression we added the function given in listing \ref{code:single_yoda_regression} to the \texttt{test\_executables.py} script. This function first reads in the base text file and then reads in the target text file created from the run. Then after removing the first three lines from each text file the function checks that the text files are the same.
+Adding the regression tests\footnote{See commit \href{https://gitlab.com/hepcedar/contur/-/commit/a56006379872ee45c6b7689ce3aeea8ab8fd7435}{a5600637} for the first tests added} to \textbf{Contur's} testing infrastructure is straight forward enough. For the single \textbf{YODA} regression we added the function given in listing \ref{code:single_yoda_regression} to the \texttt{test\_executables.py} script. This function first reads in the base text file and then reads in the target text file created from the run. Then after removing the first three lines from each text file the function checks that the text files are the same.
+
 \begin{code}
 \captionof{listing}{Single \texttt{YODA} Regression Test}
 \label{code:single_yoda_regression}
